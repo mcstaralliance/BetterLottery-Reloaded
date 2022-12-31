@@ -164,7 +164,7 @@ public class PlayerLotteryInfo extends InventoryInfo {
                 Collection<? extends Player> arrayOfPlayer = Bukkit.getOnlinePlayers();
                 int i = arrayOfPlayer.size();
                 for (byte b = 0; b < i; b = (byte) (b + 1)) {
-                    ((Player) arrayOfPlayer.toArray()[b]).sendMessage("[§aBetterLotteryReload§f] §a恭喜玩家§e[" + this.player.getName() + "§e]§a在转转乐当中使用§e[" + this.hand.getItemMeta().getDisplayName() + "§e]§a抽取到了§e[" + ((!this.prize.getItemStack().hasItemMeta() || !this.prize.getItemStack().getItemMeta().hasDisplayName()) ? this.prize.getItemStack().getType().name() : this.prize.getItemStack().getItemMeta().getDisplayName()) + "§e X " + this.prize.getItemStack().getAmount() + "]");
+                    ((Player) arrayOfPlayer.toArray()[b]).sendMessage("§b[§c小域§b] §a恭喜玩家§e[" + this.player.getName() + "§e]§a使用§e[" + this.hand.getItemMeta().getDisplayName() + "§e]§a抽取到了§e[" + ((!this.prize.getItemStack().hasItemMeta() || !this.prize.getItemStack().getItemMeta().hasDisplayName()) ? this.prize.getItemStack().getType().name() : this.prize.getItemStack().getItemMeta().getDisplayName()) + "§e X " + this.prize.getItemStack().getAmount() + "]");
                 }
             }
         }
