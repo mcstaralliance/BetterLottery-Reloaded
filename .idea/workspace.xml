@@ -5,13 +5,14 @@
       <artifact name="BetterLottery-Reloaded" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="82b75787-4333-4d20-bafb-ec1135541072" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/xtuly/mcp/betterlotteryreloaded/GuiHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/xtuly/mcp/betterlotteryreloaded/GuiHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/BLREvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/BLREvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/GuiHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/GuiHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/LotteryHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/LotteryHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BetterLottery_Reloaded/BetterLottery-Reloaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/PlayerLotteryInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/xtuly/mcp/betterlotteryreloaded/PlayerLotteryInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -39,20 +43,27 @@
   <component name="ProjectId" id="1Z7I5UmUsvLY5m2sK0eisvTxEgF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/ylarod/IdeaProjects/BetterLottery-Reloaded",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="BetterLottery-Reloaded build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -81,6 +92,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -97,6 +109,7 @@
       <workItem from="1584231230540" duration="6671000" />
       <workItem from="1584240873219" duration="856000" />
       <workItem from="1584241875907" duration="76000" />
+      <workItem from="1672658191266" duration="2339000" />
     </task>
     <task id="LOCAL-00001" summary="Change prefix">
       <created>1584241623088</created>
@@ -109,48 +122,10 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change prefix" />
     <option name="LAST_COMMIT_MESSAGE" value="Change prefix" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="614" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584183535105">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="614" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864@0.0.1536.864" timestamp="1584183535105" />
-    <state x="499" y="186" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1584186859979">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="499" y="186" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.864@0.0.1536.864" timestamp="1584186859979" />
-    <state x="481" y="301" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584238094388">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="481" y="301" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1584238094388" />
-    <state x="307" y="25" key="CommitChangelistDialog2" timestamp="1584242024675">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="307" y="25" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1584242024675" />
-    <state x="549" y="186" key="FileChooserDialogImpl" timestamp="1584186621687">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="549" y="186" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1584186621687" />
-    <state x="227" y="62" key="SettingsEditor" timestamp="1584193084382">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="227" y="62" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1584193084382" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1584241745874">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1584241745874" />
-    <state x="447" y="31" width="782" height="801" key="find.popup" timestamp="1584234359490">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="447" y="31" width="782" height="801" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1584234359490" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1584184870007">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1584184870007" />
   </component>
 </project>

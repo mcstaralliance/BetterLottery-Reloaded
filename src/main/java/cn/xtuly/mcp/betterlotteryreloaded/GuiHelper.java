@@ -171,13 +171,12 @@ public class GuiHelper {
         String[] strings = new String[keys.size()];
         keys.toArray(strings);
         int startValue = SELECT_POOL_OPS.get(player.getName()) * 36;
-        int i3 = startValue;
-        for(int id2 = id;i3 < startValue + 36 && i3 < strings.length;i3++){
+        for(int i3 = startValue;i3 < startValue + 36 && i3 < strings.length;i3++){
             String title = "§a奖池名称： §e" + config.getString(strings[i3] + ".title").replaceAll("&", "§");
             boolean enable = config.getBoolean(strings[i3] + ".enable");
             ItemStack itemStack = getItemStack(Material.WOOL, title, "§a奖券名称： §e" + strings[i3].replaceAll("&", "§"), "§a当前状态： §e" + (enable ? "开启" : "关闭"), "§c更改设置： §e左键单击", "§c拓印奖券： §e手持需要拓印的物品 Shift+左键单击", "§c删除奖池： §eShift+右键单击");
             itemStack.setDurability((short) (enable ? 5 : 14));
-            inventory.setItem(id2, itemStack);
+            inventory.setItem(i3, itemStack);
         }
         boolean hasNext = (strings.length - startValue) + 36 > 0;
         inventory.setItem(48, getItemStack(Material.LEATHER_CHESTPLATE, String.valueOf(startValue > 0 ? "§a" : "§7") + "上一页", "§c翻页操作： §e左键单击"));
