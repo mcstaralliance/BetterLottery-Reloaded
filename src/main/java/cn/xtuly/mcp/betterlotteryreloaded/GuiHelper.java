@@ -19,7 +19,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GuiHelper {
     public static final HashMap<String, String> CREATING_OPS = new HashMap<>();
-    public static final String TITLE_PREFIX = "            Lottery-";
+    public static final String TITLE_PREFIX = "LotteryAdmin-";
     public static final String MENU_TITLE = TITLE_PREFIX + "奖池菜单";
     public static final String MESSAGE_PREFIX = "[§aBetterLotteryReload§f] ";
     public static final HashMap<String, Integer> SELECT_POOL_OPS = new HashMap<>();
@@ -50,15 +50,15 @@ public class GuiHelper {
     public static void menuGui(Player player) {
         Inventory inventory = Bukkit.createInventory(player, 9, MENU_TITLE);
         for (int i = 0; i < 9; i++) {
-            inventory.setItem(i, getItemStack(Material.THIN_GLASS, "§8永远被封印的结界"));
+            inventory.setItem(i, getItemStack(Material.BLACK_STAINED_GLASS_PANE, "§8永远被封印的结界"));
         }
         inventory.setItem(3, getItemStack(Material.ANVIL, "§a创建抽奖池", "§c创建操作： §e左键单击"));
-        inventory.setItem(5, getItemStack(Material.SIGN, "§a抽奖池设置", "§c设置操作： §e左键单击"));
+        inventory.setItem(5, getItemStack(Material.OAK_SIGN, "§a抽奖池设置", "§c设置操作： §e左键单击"));
         showGui(player, inventory);
     }
 
     public static void playerClickedGui(InventoryClickEvent event) {
-        String title = event.getInventory().getTitle();
+        String title = event.getView().getTitle();
         Player player = (Player) event.getWhoClicked();
         int rawSlot = event.getRawSlot();
         if (title.equals(MENU_TITLE)) {
@@ -162,10 +162,10 @@ public class GuiHelper {
         Set<String> keys = config.getKeys(false);
         Inventory inventory = Bukkit.createInventory(player, 54, SELECT_POOL_TITLE);
         for (int i = 0; i < 36; i++) {
-            inventory.setItem(i, getItemStack(Material.STAINED_GLASS_PANE, "§7暂时被封印的结界"));
+            inventory.setItem(i, getItemStack(Material.GRAY_STAINED_GLASS_PANE, "§7暂时被封印的结界"));
         }
         for (int i2 = 36; i2 < 54; i2++) {
-            inventory.setItem(i2, getItemStack(Material.THIN_GLASS, "§8永远被封印的结界"));
+            inventory.setItem(i2, getItemStack(Material.GLASS_PANE, "§8永远被封印的结界"));
         }
         int id = 0;
         String[] strings = new String[keys.size()];
@@ -174,7 +174,7 @@ public class GuiHelper {
         for(int i3 = startValue;i3 < startValue + 36 && i3 < strings.length;i3++){
             String title = "§a奖池名称： §e" + config.getString(strings[i3] + ".title").replaceAll("&", "§");
             boolean enable = config.getBoolean(strings[i3] + ".enable");
-            ItemStack itemStack = getItemStack(Material.WOOL, title, "§a奖券名称： §e" + strings[i3].replaceAll("&", "§"), "§a当前状态： §e" + (enable ? "开启" : "关闭"), "§c更改设置： §e左键单击", "§c拓印奖券： §e手持需要拓印的物品 Shift+左键单击", "§c删除奖池： §eShift+右键单击");
+            ItemStack itemStack = getItemStack(Material.WHITE_WOOL, title, "§a奖券名称： §e" + strings[i3].replaceAll("&", "§"), "§a当前状态： §e" + (enable ? "开启" : "关闭"), "§c更改设置： §e左键单击", "§c拓印奖券： §e手持需要拓印的物品 Shift+左键单击", "§c删除奖池： §eShift+右键单击");
             itemStack.setDurability((short) (enable ? 5 : 14));
             inventory.setItem(i3, itemStack);
         }
@@ -189,10 +189,10 @@ public class GuiHelper {
         FileConfiguration config = Config.load("BetterLottery");
         Inventory inventory = Bukkit.createInventory(player, 54, SETTING_TITLE);
         for (int i = 0; i < 36; i++) {
-            inventory.setItem(i, getItemStack(Material.STAINED_GLASS_PANE, "§7暂时被封印的结界"));
+            inventory.setItem(i, getItemStack(Material.GRAY_STAINED_GLASS_PANE, "§7暂时被封印的结界"));
         }
         for (int i2 = 36; i2 < 54; i2++) {
-            inventory.setItem(i2, getItemStack(Material.THIN_GLASS, "§8永远被封印的结界"));
+            inventory.setItem(i2, getItemStack(Material.BLACK_STAINED_GLASS_PANE, "§8永远被封印的结界"));
         }
         if (config.contains(String.valueOf(key) + ".chest")) {
             String[] chestInfo = config.getString(key + ".chest").split(" ");
@@ -280,7 +280,8 @@ public class GuiHelper {
                 if (rawSlot == 48) {
                     if (!isOpened) {
                         ItemStack itemStack = player.getItemOnCursor();
-                        if (itemStack.getTypeId() > 0) {
+
+                        if (itemStack != null && itemStack.getType() != Material.AIR) {
                             boolean isTopInventory = false;
                             if (config.contains(String.valueOf(key) + ".chest")) {
                                 String[] chestInfo = config.getString(String.valueOf(key) + ".chest").split(" ");
@@ -354,7 +355,7 @@ public class GuiHelper {
                             int i5 = 0;
                             while (i5 < 36) {
                                 ItemStack tempItemStack = inventoryInfo.getInventory().getItem(i5);
-                                if (!tempItemStack.getType().equals(Material.STAINED_GLASS_PANE) || !tempItemStack.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
+                                if (!tempItemStack.getType().equals(Material.GRAY_STAINED_GLASS_PANE) || !tempItemStack.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
                                     if (i5 == 35) {
                                         player.sendMessage("[§aBetterLotteryReload§f] §c添加失败§e>>>奖池已满，无法继续添加");
                                     }
@@ -401,7 +402,7 @@ public class GuiHelper {
                                 break;
                             }
                             ItemStack tempItemStack2 = inventoryInfo.getInventory().getItem(i6);
-                            if (!tempItemStack2.getType().equals(Material.STAINED_GLASS_PANE) || !tempItemStack2.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
+                            if (!tempItemStack2.getType().equals(Material.GRAY_STAINED_GLASS_PANE) || !tempItemStack2.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
                                 if ((Integer) odds2.get(i6) == -1) {
                                     allowOpen = false;
                                     break;
@@ -425,7 +426,7 @@ public class GuiHelper {
                 } else {
                     if (!isOpened) {
                         ItemStack tempItemStack3 = inventoryInfo.getInventory().getItem(rawSlot);
-                        if (!tempItemStack3.getType().equals(Material.STAINED_GLASS_PANE) || !tempItemStack3.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
+                        if (!tempItemStack3.getType().equals(Material.GRAY_STAINED_GLASS_PANE) || !tempItemStack3.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
                             player.closeInventory();
                             SETTING_ODDS_OPS.put(player.getName(), rawSlot);
                             player.sendMessage("[§aBetterLotteryReload§f] §e设置几率>>>请在聊天框中输入该奖品的几率§c(必须为正整数，可以是0)");
@@ -439,7 +440,7 @@ public class GuiHelper {
             } else {
                 if (!isOpened) {
                     ItemStack tempItemStack4 = inventoryInfo.getInventory().getItem(rawSlot);
-                    if (!tempItemStack4.getType().equals(Material.STAINED_GLASS_PANE) || !tempItemStack4.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
+                    if (!tempItemStack4.getType().equals(Material.GRAY_STAINED_GLASS_PANE) || !tempItemStack4.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
                         String string = config.getString(String.valueOf(key) + ".chest");
                         List<Integer> odds3 = config.getIntegerList(String.valueOf(key) + ".odds");
                         List<Integer> notice2 = config.getIntegerList(String.valueOf(key) + ".notice");
@@ -483,7 +484,7 @@ public class GuiHelper {
         } else if (event.isShiftClick() && event.isRightClick() && rawSlot < 36) {
             if (!isOpened) {
                 ItemStack tempItemStack5 = inventoryInfo.getInventory().getItem(rawSlot);
-                if (!tempItemStack5.getType().equals(Material.STAINED_GLASS_PANE) || !tempItemStack5.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
+                if (!tempItemStack5.getType().equals(Material.GRAY_STAINED_GLASS_PANE) || !tempItemStack5.getItemMeta().getDisplayName().equals("§7暂时被封印的结界")) {
                     String[] chestInfo3 = config.getString(String.valueOf(key) + ".chest").split(" ");
                     int x3 = Integer.parseInt(chestInfo3[0]);
                     int y3 = Integer.parseInt(chestInfo3[1]);
@@ -514,25 +515,32 @@ public class GuiHelper {
         int rawSlot = (Integer) SETTING_ODDS_OPS.get(playerName);
         FileConfiguration config = Config.load("BetterLottery");
         String key = ((InventoryInfo) SETTING_OPS.get(player.getName())).getKey();
+        int odds;
         try {
-            int odds = Integer.parseInt(message);
+            odds = Integer.parseInt(message);
             if (odds < 0) {
-                throw new Exception();
+                player.sendMessage("[§aBetterLotteryReload§f] §c设置失败，必须输入正整数，可以是0");
+                return;
             }
-            List<Integer> oddsList = config.getIntegerList(String.valueOf(key) + ".odds");
-            oddsList.set(rawSlot, odds);
-            config.set(String.valueOf(key) + ".odds", oddsList);
-            Config.save(config, "BetterLottery");
-            player.sendMessage("[§aBetterLotteryReload§f] §e奖品几率设置为：§f" + message);
-            player.sendMessage("");
-            SETTING_ODDS_OPS.remove(playerName);
-            settingGui(player, key);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             player.sendMessage("[§aBetterLotteryReload§f] §c设置失败，必须输入正整数，可以是0");
+            return;
         }
+        List<Integer> oddsList = config.getIntegerList(String.valueOf(key) + ".odds");
+        oddsList.set(rawSlot, odds);
+        config.set(String.valueOf(key) + ".odds", oddsList);
+        Config.save(config, "BetterLottery");
+        SETTING_ODDS_OPS.remove(playerName);
+        player.sendMessage("[§aBetterLotteryReload§f] §e奖品几率设置为：§f" + message);
+        player.sendMessage("");
+        settingGui(player, key);
     }
 
     public static World getChestWorld() {
-        return Bukkit.getWorld("BetterLotteryChest");
+        World world = Bukkit.getWorld("BetterLotteryChest");
+        if (world == null) {
+            Bukkit.getLogger().severe("[BetterLotteryReload] BetterLotteryChest 世界不存在！请检查服务器日志。");
+        }
+        return world;
     }
 }

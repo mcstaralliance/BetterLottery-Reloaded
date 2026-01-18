@@ -112,7 +112,7 @@ public class PlayerLotteryInfo extends InventoryInfo {
             getInventory().setItem(currentPos, prizeInfo.getItemStack());
             this.inventoryItemStacks.add(getInventory().getItem(currentPos));
             currentPos++;
-            if (currentPos == 22 || (currentPos < 45 && getInventory().getItem(currentPos).getType().equals(Material.THIN_GLASS))) {
+            if (currentPos == 22 || (currentPos < 45 && getInventory().getItem(currentPos).getType().equals(Material.GLASS_PANE))) {
 
             }
         }
@@ -125,7 +125,7 @@ public class PlayerLotteryInfo extends InventoryInfo {
             if (time >= ((long) delay.getTime())) {
                 this.delayIndex++;
                 if (this.delayIndex == this.delays.length) {
-                    this.player.playSound(this.player.getLocation(), Sound.ENTITY_FIREWORK_BLAST, 1.0f, 1.0f);
+                    this.player.playSound(this.player.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1.0f, 1.0f);
                     this.animationEnded = true;
                     ended();
                 }

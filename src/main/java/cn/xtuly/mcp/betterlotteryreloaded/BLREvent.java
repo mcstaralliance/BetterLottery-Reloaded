@@ -77,11 +77,22 @@ public class BLREvent implements Listener {
 
     @EventHandler
     public void guiClicked(InventoryClickEvent event) {
-        if ((event.getWhoClicked() instanceof Player) && event.getRawSlot() >= 0) {
-            if (event.getInventory().getTitle().startsWith(GuiHelper.TITLE_PREFIX)) {
-                GuiHelper.playerClickedGui(event);
-            } else if (event.getInventory().getTitle().startsWith(LotteryHelper.TITLE_PREFIX)) {
-                LotteryHelper.lotteryDrawClicked(event);
+        if (event.getWhoClicked() instanceof Player) {
+            String title = event.getView().getTitle();
+            // 管理GUI优先判断（前缀更长，更具体）
+            if (title.startsWith(GuiHelper.TITLE_PREFIX)) {
+                if (event.getRawSlot() >= 0) {
+                    GuiHelper.playerClickedGui(event);
+                } else {
+                    // 点击GUI外部也要取消事件
+                    event.setCancelled(true);
+                }
+            // 抽奖GUI，无论点击位置如何都要取消事件，防止物品被拿出
+            } else if (title.startsWith(LotteryHelper.TITLE_PREFIX)) {
+                event.setCancelled(true);
+                if (event.getRawSlot() >= 0) {
+                    LotteryHelper.lotteryDrawClicked(event);
+                }
             }
         }
     }
@@ -95,6 +106,7 @@ public class BLREvent implements Listener {
         } else if (GuiHelper.SETTING_ODDS_OPS.containsKey(player.getName())) {
             GuiHelper.setOdds(player, event.getMessage());
             event.setCancelled(true);
+            return;
         }
     }
 

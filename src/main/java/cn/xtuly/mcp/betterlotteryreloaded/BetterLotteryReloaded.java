@@ -35,13 +35,17 @@ public class BetterLotteryReloaded extends JavaPlugin {
 
     public void initWorld() {
         WorldCreator creator = new WorldCreator("BetterLotteryChest");
-        creator.generateStructures(true);
+        creator.generateStructures(false);
         creator.environment(Environment.NORMAL);
         creator.type(WorldType.FLAT);
-        World world = creator.createWorld();
+        World world = Bukkit.createWorld(creator);
+        if (world == null) {
+            getLogger().severe("无法创建/加载 BetterLotteryChest 世界！插件可能无法正常工作。");
+            return;
+        }
         world.setSpawnLocation(0, 5, 0);
         world.save();
-        Bukkit.createWorld(creator);
+        getLogger().info("BetterLotteryChest 世界加载成功");
     }
 
     private void initEvent() {

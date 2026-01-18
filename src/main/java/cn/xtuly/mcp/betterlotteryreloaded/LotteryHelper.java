@@ -145,12 +145,12 @@ public class LotteryHelper implements Runnable {
     public static void lotteryDrawGui(Player player, FileConfiguration config, String key) {
         Inventory inventory = Bukkit.createInventory(player, 45, TITLE_PREFIX + config.getString(key + ".title").replaceAll("&", "§"));
         for (int i = 0; i < 45; i++) {
-            inventory.setItem(i, getItemStack(Material.STAINED_GLASS_PANE, "§7暂时被封印的结界"));
+            inventory.setItem(i, getItemStack(Material.GRAY_STAINED_GLASS_PANE, "§7暂时被封印的结界"));
         }
         int[] arrayOfInt = INTS;
         int j = arrayOfInt.length;
         for (byte b = 0; b < j; b = (byte) (b + 1)) {
-            inventory.setItem(arrayOfInt[b], getItemStack(Material.THIN_GLASS, "§8永远被封印的结界"));
+            inventory.setItem(arrayOfInt[b], getItemStack(Material.GLASS_PANE, "§8永远被封印的结界"));
         }
         String[] chestInfo = config.getString(key + ".chest").split(" ");
         int x = Integer.parseInt(chestInfo[0]);
@@ -164,7 +164,7 @@ public class LotteryHelper implements Runnable {
                 inventory.setItem(currentPos, tempItemStack);
                 while (true) {
                     currentPos++;
-                    if (!inventory.getItem(currentPos).getType().equals(Material.THIN_GLASS)) {
+                    if (!inventory.getItem(currentPos).getType().equals(Material.GLASS_PANE)) {
                         break;
                     }
                 }
@@ -179,7 +179,7 @@ public class LotteryHelper implements Runnable {
                     inventory.setItem(currentPos, tempItemStack2);
                     while (true) {
                         currentPos++;
-                        if (currentPos >= 45 || !inventory.getItem(currentPos).getType().equals(Material.THIN_GLASS)) {
+                        if (currentPos >= 45 || !inventory.getItem(currentPos).getType().equals(Material.GLASS_PANE)) {
                             break;
                         }
                     }
