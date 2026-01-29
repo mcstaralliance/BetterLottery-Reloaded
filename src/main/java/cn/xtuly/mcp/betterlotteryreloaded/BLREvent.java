@@ -101,12 +101,11 @@ public class BLREvent implements Listener {
     public void opInputMessage(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         if (GuiHelper.CREATING_OPS.containsKey(player.getName())) {
+            event.setCancelled(true);
             GuiHelper.createPool(player, event.getMessage());
-            event.setCancelled(true);
         } else if (GuiHelper.SETTING_ODDS_OPS.containsKey(player.getName())) {
-            GuiHelper.setOdds(player, event.getMessage());
             event.setCancelled(true);
-            return;
+            GuiHelper.setOdds(player, event.getMessage());
         }
     }
 
